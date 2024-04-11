@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyObject: {fileID: 8480288246828257587, guid: 86b05457ca58cc347af09153289cd4f7, type: 3}
-  SpawnDelay: 1
+  SpawnDelay: 5
   EnemiesHealth: 1
 --- !u!4 &77691758
 Transform:

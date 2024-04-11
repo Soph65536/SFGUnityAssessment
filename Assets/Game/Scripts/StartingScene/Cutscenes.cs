@@ -21,10 +21,14 @@ public class Cutscenes : MonoBehaviour
     {
         GeneralCluckAnimator.isTalking = true;
 
-        SpeechText.text = "Welcome Sergeant 62! Your mission here is to eradicate the blobgorbs in our battle against the idk yet";
-        yield return new WaitForSeconds(7);
-        SpeechText.text = "Go climb in to that hidey hole over there when you're ready to face our enemy!";
-        yield return new WaitForSeconds(6);
+        SpeechText.text = "Welcome Sergeant 62! I am your new commander.";
+        yield return new WaitForSeconds(5);
+        SpeechText.text = "For your first mission, I will test your skills on the battlefield!";
+        yield return new WaitForSeconds(5);
+        SpeechText.text = "We are to eradicate as many of these pesky files as is possible!";
+        yield return new WaitForSeconds(4);
+        SpeechText.text = "Go enter that program over there when you're ready to start.";
+        yield return new WaitForSeconds(5);
 
         SpeechText.text = NoText;
         GeneralCluckAnimator.isTalking = false;
