@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 3116696506670051687}
   - component: {fileID: 3878927712805197112}
   - component: {fileID: 2383971257109775286}
+  - component: {fileID: 1320340986064939419}
   - component: {fileID: 1708691575634351627}
+  - component: {fileID: 1267408940006842579}
   m_Layer: 0
   m_Name: TrenchGremlin
   m_TagString: Untagged
@@ -100,7 +102,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -108,6 +110,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1320340986064939419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480288246828257587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f0e773f5615644593de8889e9f3d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerObject: {fileID: 0}
 --- !u!114 &1708691575634351627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76527dbb87bb2984b88b1df76eb3a4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1267408940006842579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480288246828257587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49be360699b14da4db7926300be6a416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     public int CurrentLevel;
+
+    public List<GameObject> Enemies = new List<GameObject>();
 
     // Start is called before the first frame update
     void Awake()

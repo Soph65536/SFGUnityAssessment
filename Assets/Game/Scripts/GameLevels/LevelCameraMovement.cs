@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class LevelCameraMovement : MonoBehaviour
 {
-    const float maxRotation = 30;
+    const float maxXRotation = 30;
+    const float maxYRotation = 2;
+
     const float turnMultiplier = 1;
     const float slideMultiplier = 2;
 
@@ -30,10 +32,10 @@ public class LevelCameraMovement : MonoBehaviour
 
         //set rotation angles
         xRotation += Input.GetAxis("Mouse X");
-        xRotation = Mathf.Clamp(xRotation, -maxRotation, maxRotation);
+        xRotation = Mathf.Clamp(xRotation, -maxXRotation, maxXRotation);
 
         yRotation -= Input.GetAxis("Mouse Y");
-        yRotation = Mathf.Clamp(yRotation, -maxRotation, maxRotation);
+        yRotation = Mathf.Clamp(yRotation, -maxYRotation, maxYRotation);
 
         //update transform angle and position
         transform.localEulerAngles = new Vector3(yRotation, xRotation, -Input.GetAxis("Horizontal") * turnMultiplier);
