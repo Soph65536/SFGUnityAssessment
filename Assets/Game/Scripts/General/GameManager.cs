@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
+    public int ThisLevel;
     public int CurrentLevel;
 
+    public int[] LevelScores = { 0, 0, 0, 0, 0 };
     public List<GameObject> Enemies = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+        ThisLevel = 0;
         CurrentLevel = 1;
     }
 }

@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    const float DeathTime = 2;
+
     public int Health;
+    public ParticleSystem DeathParticles;
+
+    private void Start()
+    {
+        DeathParticles = GetComponentInChildren<ParticleSystem>();
+        DeathParticles.Stop();
+    }
 
     private void FixedUpdate()
     {
         if (Health <= 0)
         {
-            GameManager.Instance.Enemies.Add(gameObject);
-            Destroy(gameObject);
+            StartCoroutine("EnemyDeath");
         }
     }
 
@@ -21,5 +29,24 @@ public class EnemyHealth : MonoBehaviour
         {
             Health -= 1;
         }
+    }
+
+    private IEnumerator EnemyDeath()
+    {
+        //add object to enemies
+        GameManager.Instance.Enemies.Add(gameObject);
+
+        //disable mesh renderer so object isnt visible
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+        //play particles and wait
+        DeathParticles.Play();
+        yield return new WaitForSeconds(DeathTime);
+
+        //increment this level's score
+        GameManager.Instance.LevelScores[GameManager.Instance.ThisLevel]++;
+
+        //destroy object
+        Destroy(gameObject);
     }
 }

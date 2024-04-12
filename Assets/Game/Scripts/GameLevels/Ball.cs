@@ -5,14 +5,14 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        StartCoroutine("WaitForDeath");
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator WaitForDeath()
     {
-        
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
     }
 }

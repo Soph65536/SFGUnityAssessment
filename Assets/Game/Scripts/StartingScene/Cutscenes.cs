@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Cutscenes : MonoBehaviour
 {
+    private bool[] seenCutscenes = { false, false, false, false, false };
+
     public TextMeshProUGUI SpeechText;
     private string NoText = string.Empty;
 
@@ -14,7 +16,7 @@ public class Cutscenes : MonoBehaviour
     void Awake()
     {
         SpeechText.text = NoText;
-        StartCoroutine("StartingCutscene");
+        if (seenCutscenes[0] == false) { StartCoroutine("StartingCutscene"); }
     }
 
     IEnumerator StartingCutscene()
