@@ -7,10 +7,13 @@ public class EnemyHealth : MonoBehaviour
     const float DeathTime = 2;
 
     public int Health;
+    public AudioSource AudioSource;
+    public AudioClip hitEnemy;
     public ParticleSystem DeathParticles;
 
     private void Start()
     {
+        AudioSource = GetComponent<AudioSource>();
         DeathParticles = GetComponentInChildren<ParticleSystem>();
         DeathParticles.Stop();
     }
@@ -27,7 +30,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if(other.GetComponent<Ball>() != null)
         {
-            Health -= 1;
+            //player hit sound and decrement health
+            AudioSource.PlayOneShot(hitEnemy, 0.7f);
+            Health --;
         }
     }
 

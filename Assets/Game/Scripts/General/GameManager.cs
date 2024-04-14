@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int ThisLevel;
     public int CurrentLevel;
 
-    public int[] LevelScores = { 0, 0, 0, 0, 0 };
+    public int[] LevelScores = { 0, 0, 0, 0, 0, 0 };
     public List<GameObject> Enemies = new List<GameObject>();
 
     // Start is called before the first frame update

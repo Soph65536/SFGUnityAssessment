@@ -32,6 +32,6 @@ public class GameTimerAndText : MonoBehaviour
         }
         //increment current level and load starting scene
         GameManager.Instance.CurrentLevel ++;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
