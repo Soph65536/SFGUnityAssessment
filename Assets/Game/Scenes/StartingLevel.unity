@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5170ea7c14af14cb1645ad8fbffbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seenCutscenes: 000000000000
   SpeechText: {fileID: 962171376}
   GeneralCluckAnimator: {fileID: 1435873000}
 --- !u!4 &1529422242

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static GameManager _instance;
 
+    public int CurrentCutscene;
     public int ThisLevel;
     public int CurrentLevel;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+        CurrentCutscene = 0;
         ThisLevel = 0;
         CurrentLevel = 1;
     }
