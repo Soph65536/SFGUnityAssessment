@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    const string Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!£$%^&*/?<>#~'@";
     const float DeathTime = 2;
 
-    public int Health;
+    public int Health = 1;
     public AudioSource AudioSource;
     public AudioClip hitEnemy;
     public ParticleSystem DeathParticles;
 
+    private bool died;
+
+    public string Name;
+    public Material Image;
+
     private void Start()
     {
+        //set and display name
+        for (int i = 0; i < 5; i++)
+        {
+            Name += Characters[Random.Range(0, Characters.Length)];
+        }
+        Name += ".grog";
+        GetComponentInChildren<TextMesh>().text = Name;
+
+        //set random material
+        int whichImage = Random.Range(0, Resources.LoadAll<Material>("GremlinMaterials").Length - 1);
+        Image = Resources.LoadAll<Material>("GremlinMaterials")[whichImage];
+        GetComponent<Renderer>().material = Image;
+
+        //set audio and particles
         AudioSource = GetComponent<AudioSource>();
         DeathParticles = GetComponentInChildren<ParticleSystem>();
         DeathParticles.Stop();
@@ -20,8 +40,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Health <= 0)
+        if (Health <= 0 && !died)
         {
+            died = true;
             StartCoroutine("EnemyDeath");
         }
     }
@@ -38,9 +59,6 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator EnemyDeath()
     {
-        //add object to enemies
-        GameManager.Instance.Enemies.Add(gameObject);
-
         //disable mesh renderer so object isnt visible
         gameObject.GetComponent<MeshRenderer>().enabled = false;
 
@@ -50,6 +68,12 @@ public class EnemyHealth : MonoBehaviour
 
         //increment this level's score
         GameManager.Instance.LevelScores[GameManager.Instance.ThisLevel]++;
+
+        //add object to enemies
+        GameManager.Instance.EnemyNames.Add(Name);
+
+        //add object to enemies
+        GameManager.Instance.EnemyImages.Add(Image);
 
         //destroy object
         Destroy(gameObject);

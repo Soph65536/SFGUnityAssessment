@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    const float MaxDistanceFromCenter = 12;
+    const float MaxDistanceFromCenter = 11.5f;
 
     const float StartingYPos = 0f;
     const float StartingZPos = 9.5f;

@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public int CurrentLevel;
 
     public int[] LevelScores = { 0, 0, 0, 0, 0, 0 };
-    public List<GameObject> Enemies = new List<GameObject>();
+
+    public List<string> EnemyNames = new List<string>();
+    public List<Material> EnemyImages = new List<Material>();
 
     // Start is called before the first frame update
     void Awake()

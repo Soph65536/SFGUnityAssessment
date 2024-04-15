@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cutscenes : MonoBehaviour
 {
-    private int seenCutscenes = 0;
-
     public TextMeshProUGUI SpeechText;
     private string NoText = string.Empty;
 
     public GeneralCluckAnimator GeneralCluckAnimator;
+    public CreateEndingObjects CreateEndingObjects;
 
     // Start is called before the first frame update
     void Start()
     {
+        //disable error screen
+        GameObject.FindGameObjectWithTag("ErrorScreen").GetComponent<Image>().enabled = false;
+
         SpeechText.text = NoText;
 
         switch(GameManager.Instance.CurrentCutscene){
@@ -22,7 +25,7 @@ public class Cutscenes : MonoBehaviour
                 StartCoroutine("StartingCutscene");
                 break;
             case 1:
-                StartCoroutine("Cutscene2");
+                StartCoroutine("Cutscene5");
                 break;
             case 2:
                 StartCoroutine("Cutscene3");
@@ -42,7 +45,7 @@ public class Cutscenes : MonoBehaviour
     {
         GeneralCluckAnimator.isTalking = true;
 
-        SpeechText.text = "Welcome Sergeant 62! I am your new commander.";
+        SpeechText.text = "Welcome Grog! I am your new commander.";
         yield return new WaitForSeconds(5);
         SpeechText.text = "For your first mission, I will test your skills on the battlefield!";
         yield return new WaitForSeconds(5);
@@ -59,7 +62,7 @@ public class Cutscenes : MonoBehaviour
     {
         GeneralCluckAnimator.isTalking = true;
 
-        SpeechText.text = "Well done! You have proven worthy of your skills, test 62.";
+        SpeechText.text = "Well done! You have proven worthy of your skills, Grog.";
         yield return new WaitForSeconds(5);
         SpeechText.text = "Now it's time for the real thing.";
         yield return new WaitForSeconds(4);
@@ -122,5 +125,6 @@ public class Cutscenes : MonoBehaviour
 
         SpeechText.text = NoText;
         GeneralCluckAnimator.isTalking = false;
+        CreateEndingObjects.CreateObjects();
     }
 }
