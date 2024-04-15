@@ -25,7 +25,7 @@ public class Cutscenes : MonoBehaviour
                 StartCoroutine("StartingCutscene");
                 break;
             case 1:
-                StartCoroutine("Cutscene5");
+                StartCoroutine("Cutscene2");
                 break;
             case 2:
                 StartCoroutine("Cutscene3");

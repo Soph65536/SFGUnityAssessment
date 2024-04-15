@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : MonoBehaviour, IInteractable
 {
     public int levelNumber;
 
@@ -28,11 +28,9 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void BeginInteract()
     {
-        if (other.CompareTag("Player")){
-            StartCoroutine("EnterLevel");
-        }
+        StartCoroutine("EnterLevel");
     }
 
     private IEnumerator EnterLevel()
