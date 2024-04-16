@@ -16,6 +16,12 @@ public class ShowErrorScreen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        StartCoroutine("ErrorScreen");
+    }
+
+    IEnumerator ErrorScreen(){
         errorScreen.GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(3);
+        Application.Quit();
     }
 }
