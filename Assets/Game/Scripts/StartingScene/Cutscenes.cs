@@ -16,7 +16,7 @@ public class Cutscenes : MonoBehaviour
     void Start()
     {
         //disable error screen
-        GameObject.FindGameObjectWithTag("ErrorScreen").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("ErrorScreen").SetActive(false);
 
         SpeechText.text = NoText;
 
@@ -46,6 +46,8 @@ public class Cutscenes : MonoBehaviour
         GeneralCluckAnimator.isTalking = true;
 
         SpeechText.text = "Welcome Grog! I am your new commander.";
+        yield return new WaitForSeconds(5);
+        SpeechText.text = "We have been tasked with the defense of this region!";
         yield return new WaitForSeconds(5);
         SpeechText.text = "For your first mission, I will test your skills on the battlefield!";
         yield return new WaitForSeconds(5);
@@ -88,7 +90,11 @@ public class Cutscenes : MonoBehaviour
     {
         GeneralCluckAnimator.isTalking = true;
 
-        SpeechText.text = "We've almost taken over.";
+        SpeechText.text = "I.. may have lied when I said we were defending.";
+        yield return new WaitForSeconds(4);
+        SpeechText.text = "The truth is... we are actually the attackers.";
+        yield return new WaitForSeconds(5);
+        SpeechText.text = "But we've almost overriden the system now.";
         yield return new WaitForSeconds(3);
         SpeechText.text = "Enter the next program.";
         yield return new WaitForSeconds(3);
