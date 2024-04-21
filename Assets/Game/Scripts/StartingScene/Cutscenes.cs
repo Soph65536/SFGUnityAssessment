@@ -16,7 +16,7 @@ public class Cutscenes : MonoBehaviour
     void Start()
     {
         //disable error screen
-        GameObject.FindGameObjectWithTag("ErrorScreen").SetActive(false);
+        GameObject.FindGameObjectWithTag("ErrorScreen").GetComponent<Image>().enabled = false;
 
         SpeechText.text = NoText;
 

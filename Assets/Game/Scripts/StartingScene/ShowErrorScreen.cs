@@ -11,16 +11,16 @@ public class ShowErrorScreen : MonoBehaviour
     void Start()
     {
         errorScreen = GameObject.FindGameObjectWithTag("ErrorScreen");
-        errorScreen.SetActive(false);
+        errorScreen.GetComponent<Image>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine("ErrorScreen");
+        StartCoroutine("ErrorScreenShow");
     }
 
-    IEnumerator ErrorScreen(){
-        errorScreen.SetActive(true);
+    IEnumerator ErrorScreenShow(){
+        errorScreen.GetComponent<Image>().enabled = true;
         yield return new WaitForSeconds(3);
         Application.Quit();
     }

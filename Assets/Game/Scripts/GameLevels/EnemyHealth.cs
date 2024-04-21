@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 
     public string Name;
     public Material Image;
+    public TextMesh HealthText;
 
     private void Start()
     {
@@ -26,6 +28,9 @@ public class EnemyHealth : MonoBehaviour
         }
         Name += ".grog";
         GetComponentInChildren<TextMesh>().text = Name;
+
+        //set health text
+        HealthText.text = Health.ToString();
 
         //set random material
         int whichImage = Random.Range(0, Resources.LoadAll<Material>("GremlinMaterials").Length - 1);
@@ -54,6 +59,9 @@ public class EnemyHealth : MonoBehaviour
             //player hit sound and decrement health
             AudioSource.PlayOneShot(hitEnemy, 0.7f);
             Health --;
+
+            //set health text
+            HealthText.text = Health.ToString();
         }
     }
 
