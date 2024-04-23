@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public AudioSource AudioSource;
+    public AudioClip Clip;
+
     // Start is called before the first frame update
     void Awake()
     {
+        AudioSource = GetComponent<AudioSource>();
+        AudioSource.PlayOneShot(Clip, 1f);
+
         StartCoroutine("WaitForDeath");
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - ErrorScreen
+  - Enemy
   layers:
   - Default
   - TransparentFX

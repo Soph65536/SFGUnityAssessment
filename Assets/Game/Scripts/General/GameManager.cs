@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int ThisLevel;
     public int CurrentLevel;
 
+    public int CollectiblesCollected;
+
     public int[] LevelScores = { 0, 0, 0, 0, 0, 0 };
 
     public List<string> EnemyNames = new List<string>();
@@ -34,5 +36,7 @@ public class GameManager : MonoBehaviour
         CurrentCutscene = 0;
         ThisLevel = 0;
         CurrentLevel = 1;
+
+        CollectiblesCollected = 0;
     }
 }

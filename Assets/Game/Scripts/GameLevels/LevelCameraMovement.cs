@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelCameraMovement : MonoBehaviour
 {
     const float maxXRotation = 30;
-    const float maxYRotation = 2;
+    const float maxYRotation = 20;
 
     const float turnMultiplier = 1;
     const float slideMultiplier = 2;

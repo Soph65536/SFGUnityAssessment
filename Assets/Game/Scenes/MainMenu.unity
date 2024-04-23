@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game
+  m_text: Grog.vir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff1911dbdf2be0c469e8b998f97aa779, type: 2}
   m_sharedMaterial: {fileID: 1441718679427279277, guid: ff1911dbdf2be0c469e8b998f97aa779, type: 2}
