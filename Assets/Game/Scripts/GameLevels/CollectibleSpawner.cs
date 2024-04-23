@@ -33,6 +33,8 @@ public class CollectibleSpawner : MonoBehaviour
         GameObject newCollectible = Instantiate(Collectible);
         newCollectible.transform.position = this.transform.position;
 
+        SpawnDelay = Random.Range(0f, 60f);
+
         isSpawning = false;
     }
 }
